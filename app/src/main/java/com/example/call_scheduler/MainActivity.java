@@ -58,22 +58,18 @@ public class MainActivity extends AppCompatActivity implements
             Calendar systemCalendar = Calendar.getInstance();
             int hour = systemCalendar.get(Calendar.HOUR_OF_DAY);
             int minute = systemCalendar.get(Calendar.MINUTE);
+            timePicker = "start";
             TimePickerDialog timePickerDialog = new TimePickerDialog(this, new SetYourTime(),
                     hour, minute, true);
-            timePicker = "start";
-            call.setStartHour(hour);
-            call.setStartMin(minute);
             timePickerDialog.show();
         }
         if (v == btnSelectEndTime) {
             Calendar systemCalendar = Calendar.getInstance();
             int hour = systemCalendar.get(Calendar.HOUR_OF_DAY);
             int minute = systemCalendar.get(Calendar.MINUTE);
+            timePicker = "end";
             TimePickerDialog timePickerDialog = new TimePickerDialog(this, new SetYourTime(),
                     hour, minute, true);
-            timePicker = "end";
-            call.setEndHour(hour);
-            call.setEndMin(minute);
             timePickerDialog.show();
         }
         if(v == btnSelectDate) {
@@ -83,9 +79,6 @@ public class MainActivity extends AppCompatActivity implements
             int day=systemCalendar.get(Calendar.DAY_OF_MONTH);
             DatePickerDialog datePickerDialog =
                     new DatePickerDialog(this,new SetDate(),year,month,day);
-            call.setYear(year);
-            call.setDay(day);
-            call.setMonth(month);
             datePickerDialog.show();
         }
         if(v == btnSubmit) {
@@ -105,10 +98,14 @@ public class MainActivity extends AppCompatActivity implements
             if(timePicker == "start") {
                 String str = "Start time: " + hourOfDay + ":" + minute;
                 btnSelectStartTime.setText(str);
+                call.setStartHour(hourOfDay);
+                call.setStartMin(minute);
             }
             if(timePicker == "end") {
                 String str = "End time: " + hourOfDay + ":" + minute;
                 btnSelectEndTime.setText(str);
+                call.setEndHour(hourOfDay);
+                call.setEndMin(minute);
             }
             timePicker = "";
         }
@@ -121,6 +118,9 @@ public class MainActivity extends AppCompatActivity implements
             monthOfYear = monthOfYear + 1;
             String str = "You selected: "+ dayOfMonth + "/" + monthOfYear + "/"+year;
             btnSelectDate.setText(str);
+            call.setYear(year);
+            call.setDay(dayOfMonth);
+            call.setMonth(monthOfYear);
         }
     }
 

@@ -11,6 +11,18 @@ final public class CallRequest implements Serializable {
 
     }
 
+    public CallRequest(CallRequest other) {
+        this.startHour = other.startHour;
+        this.startMin = other.startMin;
+        this.endHour = other.endHour;
+        this.endMin = other.endMin;
+        this.day = other.day;
+        this.month = other.month;
+        this.year = other.year;
+        this.phone = other.phone;
+        this.name = other.name;
+    }
+
     public CallRequest(int startHour, int startMin, int endHour, int endMin,
                        int day, int month, int year, String phone) {
         this.startHour = startHour;
