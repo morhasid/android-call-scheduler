@@ -7,22 +7,47 @@
     tools:context=".MainActivity2">
 
     <TextView
-        android:id="@+id/tvName"
+        android:id="@+id/tvName1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/tvDate"
+        android:id="@+id/tvTime1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+
+    <TextView
+        android:id="@+id/tvName2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/tvTime"
+        android:id="@+id/tvTime2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
+
+    <EditText
+        android:id="@+id/etCall1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@android:drawable/editbox_dropdown_light_frame"
+        android:hint="Name"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/etCall2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@android:drawable/editbox_dropdown_light_frame"
+        android:hint="Name"
+        android:textSize="30sp" />
 
 
 

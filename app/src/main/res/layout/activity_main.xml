@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/etName"
+        android:id="@+id/etName1"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -16,7 +16,7 @@
         android:textSize="30sp" />
 
     <EditText
-        android:id="@+id/edPhone"
+        android:id="@+id/edPhone1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -25,20 +25,44 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:id="@+id/btnStartTime"
+        android:id="@+id/btnStartTime1"
         android:text="select start time" />
 
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:id="@+id/btnEndTime"
+        android:id="@+id/btnEndTime1"
         android:text="select end time" />
+
+
+    <EditText
+        android:id="@+id/etName2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@android:drawable/editbox_dropdown_light_frame"
+        android:hint="Name"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/edPhone2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="phone" />
 
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:id="@+id/btnDate"
-        android:text="select date" />
+        android:id="@+id/btnStartTime2"
+        android:text="select start time" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnEndTime2"
+        android:text="select end time" />
+
 
     <Button
         android:layout_width="200dp"

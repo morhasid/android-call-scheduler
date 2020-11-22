@@ -1,33 +1,29 @@
 package com.example.call_scheduler;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.TimePickerDialog;
+import android.telecom.Call;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import java.io.Serializable;
-
-
 import java.util.Calendar;
-
 
 
 public class MainActivity extends AppCompatActivity implements
         View.OnClickListener {
 
-    Button btnSelectStartTime, btnSelectEndTime, btnSelectDate;
+    Button btnSelectStartTime1, btnSelectEndTime1;
     Button btnSubmit;
     String timePicker = "";
-    EditText etPhone, etName;
-    CallRequest call;
+    EditText etPhone1, etName1;
+    CallRequest call1, call2;
+
+    Button btnSelectStartTime2, btnSelectEndTime2;
+    EditText etPhone2, etName2;
 
 
     @Override
@@ -35,18 +31,26 @@ public class MainActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        call = new CallRequest();
-        etName = findViewById(R.id.etName);
-        etPhone = findViewById(R.id.edPhone);
+        call1 = new CallRequest();
+        call2 = new CallRequest();
 
-        btnSelectDate = findViewById(R.id.btnDate);
-        btnSelectDate.setOnClickListener(this);
+        etName1 = findViewById(R.id.etName1);
+        etPhone1 = findViewById(R.id.edPhone1);
 
-        btnSelectStartTime = (Button) findViewById(R.id.btnStartTime);
-        btnSelectStartTime.setOnClickListener(this);
+        btnSelectStartTime1 = (Button) findViewById(R.id.btnStartTime1);
+        btnSelectStartTime1.setOnClickListener(this);
 
-        btnSelectEndTime = (Button) findViewById(R.id.btnEndTime);
-        btnSelectEndTime.setOnClickListener(this);
+        btnSelectEndTime1 = (Button) findViewById(R.id.btnEndTime1);
+        btnSelectEndTime1.setOnClickListener(this);
+        //
+        etName2 = findViewById(R.id.etName2);
+        etPhone2 = findViewById(R.id.edPhone2);
+
+        btnSelectStartTime2 = (Button) findViewById(R.id.btnStartTime2);
+        btnSelectStartTime2.setOnClickListener(this);
+
+        btnSelectEndTime2 = (Button) findViewById(R.id.btnEndTime2);
+        btnSelectEndTime2.setOnClickListener(this);
 
         btnSubmit = findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(this);
@@ -54,38 +58,53 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onClick(View v) {
-        if (v == btnSelectStartTime) {
+        if (v == btnSelectStartTime1) {
             Calendar systemCalendar = Calendar.getInstance();
             int hour = systemCalendar.get(Calendar.HOUR_OF_DAY);
             int minute = systemCalendar.get(Calendar.MINUTE);
-            timePicker = "start";
+            timePicker = "start1";
             TimePickerDialog timePickerDialog = new TimePickerDialog(this, new SetYourTime(),
                     hour, minute, true);
             timePickerDialog.show();
         }
-        if (v == btnSelectEndTime) {
+        if (v == btnSelectEndTime1) {
             Calendar systemCalendar = Calendar.getInstance();
             int hour = systemCalendar.get(Calendar.HOUR_OF_DAY);
             int minute = systemCalendar.get(Calendar.MINUTE);
-            timePicker = "end";
+            timePicker = "end1";
             TimePickerDialog timePickerDialog = new TimePickerDialog(this, new SetYourTime(),
                     hour, minute, true);
             timePickerDialog.show();
         }
-        if(v == btnSelectDate) {
+        if (v == btnSelectStartTime2) {
             Calendar systemCalendar = Calendar.getInstance();
-            int year=systemCalendar.get(Calendar.YEAR);
-            int month=systemCalendar.get(Calendar.MONTH);
-            int day=systemCalendar.get(Calendar.DAY_OF_MONTH);
-            DatePickerDialog datePickerDialog =
-                    new DatePickerDialog(this,new SetDate(),year,month,day);
-            datePickerDialog.show();
+            int hour = systemCalendar.get(Calendar.HOUR_OF_DAY);
+            int minute = systemCalendar.get(Calendar.MINUTE);
+            timePicker = "start2";
+            TimePickerDialog timePickerDialog = new TimePickerDialog(this, new SetYourTime(),
+                    hour, minute, true);
+            timePickerDialog.show();
         }
+        if (v == btnSelectEndTime2) {
+            Calendar systemCalendar = Calendar.getInstance();
+            int hour = systemCalendar.get(Calendar.HOUR_OF_DAY);
+            int minute = systemCalendar.get(Calendar.MINUTE);
+            timePicker = "end2";
+            TimePickerDialog timePickerDialog = new TimePickerDialog(this, new SetYourTime(),
+                    hour, minute, true);
+            timePickerDialog.show();
+        }
+
         if(v == btnSubmit) {
-            call.setName(etName.getText().toString());
-            call.setPhone(etPhone.getText().toString());
+            call1.setName(etName1.getText().toString());
+            call1.setPhone(etPhone1.getText().toString());
+            call2.setName(etName2.getText().toString());
+            call2.setPhone(etPhone2.getText().toString());
             Intent i = new Intent(MainActivity.this, MainActivity2.class);
-            i.putExtra("call", call);
+            CallRequest[] calls = new CallRequest[2];
+            calls[0] = call1;
+            calls[1] = call2;
+            i.putExtra("calls", calls);
             startActivity(i);
         }
     }
@@ -95,34 +114,34 @@ public class MainActivity extends AppCompatActivity implements
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
             if(timePicker == "")
                 return;
-            if(timePicker == "start") {
+            if(timePicker == "start1") {
                 String str = "Start time: " + hourOfDay + ":" + minute;
-                btnSelectStartTime.setText(str);
-                call.setStartHour(hourOfDay);
-                call.setStartMin(minute);
+                btnSelectStartTime1.setText(str);
+                call1.setStartHour(hourOfDay);
+                call1.setStartMin(minute);
             }
-            if(timePicker == "end") {
+            if(timePicker == "end1") {
                 String str = "End time: " + hourOfDay + ":" + minute;
-                btnSelectEndTime.setText(str);
-                call.setEndHour(hourOfDay);
-                call.setEndMin(minute);
+                btnSelectEndTime1.setText(str);
+                call1.setEndHour(hourOfDay);
+                call1.setEndMin(minute);
+            }
+            if(timePicker == "start2") {
+                String str = "Start time: " + hourOfDay + ":" + minute;
+                btnSelectStartTime2.setText(str);
+                call2.setStartHour(hourOfDay);
+                call2.setStartMin(minute);
+            }
+            if(timePicker == "end2") {
+                String str = "End time: " + hourOfDay + ":" + minute;
+                btnSelectEndTime2.setText(str);
+                call2.setEndHour(hourOfDay);
+                call2.setEndMin(minute);
             }
             timePicker = "";
         }
     }
 
-    final class SetDate implements DatePickerDialog.OnDateSetListener
-    {
-        @Override
-        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            monthOfYear = monthOfYear + 1;
-            String str = "You selected: "+ dayOfMonth + "/" + monthOfYear + "/"+year;
-            btnSelectDate.setText(str);
-            call.setYear(year);
-            call.setDay(dayOfMonth);
-            call.setMonth(monthOfYear);
-        }
-    }
 
 
 }
