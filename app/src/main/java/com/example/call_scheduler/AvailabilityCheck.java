@@ -9,8 +9,7 @@ public class AvailabilityCheck {
     public AvailabilityCheck(HashMap<String, CallRequest> allContacts) {
         contacts = allContacts;
     }
-
-
+    
     public static boolean checkAvailability(CallRequest call) {
         if(!contacts.containsKey(call.getName()))
             return false;
