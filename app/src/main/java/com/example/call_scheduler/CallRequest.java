@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 final public class CallRequest implements Serializable {
     private int startHour, startMin, endHour, endMin;
-    private int day, month, year;
     private String name, phone;
 
     public CallRequest() {
@@ -16,9 +15,6 @@ final public class CallRequest implements Serializable {
         this.startMin = other.startMin;
         this.endHour = other.endHour;
         this.endMin = other.endMin;
-        this.day = other.day;
-        this.month = other.month;
-        this.year = other.year;
         this.phone = other.phone;
         this.name = other.name;
     }
@@ -29,9 +25,6 @@ final public class CallRequest implements Serializable {
         this.startMin = startMin;
         this.endHour = endHour;
         this.endMin = endMin;
-        this.day = day;
-        this.month = month;
-        this.year = year;
         this.phone = phone;
     }
 
@@ -42,9 +35,6 @@ final public class CallRequest implements Serializable {
                 ", startMin=" + startMin +
                 ", endHour=" + endHour +
                 ", endMin=" + endMin +
-                ", day=" + day +
-                ", month=" + month +
-                ", year=" + year +
                 ", name='" + name + '\'' +
                 ", phone='" + phone + '\'' +
                 '}';
@@ -82,29 +72,6 @@ final public class CallRequest implements Serializable {
         this.endMin = endMin;
     }
 
-    public int getDay() {
-        return day;
-    }
-
-    public void setDay(int day) {
-        this.day = day;
-    }
-
-    public int getMonth() {
-        return month;
-    }
-
-    public void setMonth(int month) {
-        this.month = month;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
 
     public String getName() {
         return name;
