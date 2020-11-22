@@ -17,7 +17,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
 
     TextView tvName1, tvTime1, tvName2, tvTime2;
     Button btnSubmit;
-    EditText etCall1, etCall2;
+    EditText etCallHour1,etCallMin1, etCallHour2, etCallMin2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,14 +45,18 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
                 + calls[1].getEndHour() + ":" + calls[1].getEndMin();
         tvTime2.setText(time);
 
-        etCall1 = findViewById(R.id.etCall1);
-        etCall2 = findViewById(R.id.etCall2);
-        etCall1.setHint("Hour for " + calls[0].getName());
-        etCall2.setHint("Hour for " + calls[1].getName());
+        etCallHour1 = findViewById(R.id.etCallHour1);
+        etCallMin1 = findViewById(R.id.etCallMin1);
+        etCallHour1.setHint("Hour for " + calls[0].getName());
+        etCallMin1.setHint("minutes for " + calls[0].getName());
+
+        etCallHour2 = findViewById(R.id.etCallHour2);
+        etCallMin2 = findViewById(R.id.etCallMin2);
+        etCallHour2.setHint("Hour for " + calls[1].getName());
+        etCallMin2.setHint("minutes for " + calls[1].getName());
 
         btnSubmit = findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(this);
-
     }
 
     @Override

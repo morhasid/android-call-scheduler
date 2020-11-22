@@ -32,7 +32,7 @@
         android:text="TextView" />
 
     <EditText
-        android:id="@+id/etCall1"
+        android:id="@+id/etCallHour1"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -41,7 +41,25 @@
         android:textSize="30sp" />
 
     <EditText
-        android:id="@+id/etCall2"
+        android:id="@+id/etCallMin1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@android:drawable/editbox_dropdown_light_frame"
+        android:hint="Name"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/etCallHour2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@android:drawable/editbox_dropdown_light_frame"
+        android:hint="Name"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/etCallMin2"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
