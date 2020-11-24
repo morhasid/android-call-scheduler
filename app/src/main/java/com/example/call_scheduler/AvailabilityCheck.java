@@ -1,7 +1,6 @@
 package com.example.call_scheduler;
 
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.ParseException;
