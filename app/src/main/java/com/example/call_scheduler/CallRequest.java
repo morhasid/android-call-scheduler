@@ -1,13 +1,21 @@
+/* Assignment: 1
+Campus: Ashdod
+Author: Mor Hasid, ID: 204676332
+Author2: Limor Shavit, ID: 206227787
+*/
 package com.example.call_scheduler;
 import java.io.Serializable;
 
-
+/**
+ * Class contains all data for contacts
+ * implements Serializable to be able for pass it to the next activity via Intent
+ * the function putExtra gets Serializable in the 2nd argument.
+ */
 final public class CallRequest implements Serializable {
     private int startHour, startMin, endHour, endMin;
     private String name, phone;
 
     public CallRequest() {
-
     }
 
     public CallRequest(CallRequest other) {
@@ -28,17 +36,6 @@ final public class CallRequest implements Serializable {
         this.phone = phone;
     }
 
-    @Override
-    public String toString() {
-        return "CallRequest{" +
-                "startHour=" + startHour +
-                ", startMin=" + startMin +
-                ", endHour=" + endHour +
-                ", endMin=" + endMin +
-                ", name='" + name + '\'' +
-                ", phone='" + phone + '\'' +
-                '}';
-    }
 
     public int getStartHour() {
         return startHour;
@@ -71,7 +68,6 @@ final public class CallRequest implements Serializable {
     public void setEndMin(int endMin) {
         this.endMin = endMin;
     }
-
 
     public String getName() {
         return name;
