@@ -14,8 +14,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  Class Defines the MainActivity
@@ -86,6 +90,22 @@ public class MainActivity extends AppCompatActivity implements
         Arrays.fill(isPicked, Boolean.FALSE);
     }
 
+    // Function gets a call and return start/end (depends on the boolean) Date object
+    // for convenient time comparison
+    public Date getDateObject(CallRequest call, boolean isStart) {
+        Date date = null;
+        String pattern = "HH:mm";
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        // make Date objects
+        try {
+            date = isStart ? sdf.parse(call.getStartHour() + ":" + call.getStartMin()) :
+                    sdf.parse(call.getEndHour() + ":" + call.getEndMin());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+
     @Override
     public void onClick(View v) {
         if (v == btnSelectStartTime1) {
@@ -152,6 +172,13 @@ public class MainActivity extends AppCompatActivity implements
                 Toast.makeText(this,  "One of the time ranges is not picked" , Toast.LENGTH_SHORT).show();
                 return;
             }
+            // if start time is before end time
+            if(!InputValidation.isRangesValid(getDateObject(call1, true), getDateObject(call1, false)) ||
+                    !InputValidation.isRangesValid(getDateObject(call2, true), getDateObject(call2, false))) {
+                Toast.makeText(this,  "Start time is not before end time" , Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             SharedPreferences.Editor editor = pref.edit();
             editor.putString("name1", name1);
             editor.putString("name2", name2);

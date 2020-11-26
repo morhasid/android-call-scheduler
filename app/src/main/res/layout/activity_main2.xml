@@ -10,12 +10,14 @@
         android:id="@+id/tvName1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/tvTime1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:text="TextView" />
 
 
@@ -23,34 +25,41 @@
         android:id="@+id/tvName2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/tvTime2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:text="TextView" />
 
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:id="@+id/btnCallTime1" />
 
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:id="@+id/btnCallTime2" />
 
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:id="@+id/btnCheckAvailability"
+        android:layout_gravity="center_horizontal"
         android:text="Check Availability" />
 
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:id="@+id/btnSubmit"
+        android:textColor="@color/black"
+        android:layout_gravity="center_horizontal"
         android:text="Submit" />
 
 </LinearLayout>
