@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements
     // picked a time from time picker or not
     Boolean[] isPicked = new Boolean[4];
 
-    // use this string to identify in the function onTimeSet which time picker we clicked
+    // use this string to identify in the function onTimeSet which time picker was clicked
     String timePicker = "";
 
     @Override
